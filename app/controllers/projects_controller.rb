@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
 		#render plain: params[:project].inspect
 		@project = Project.new(project_params)
 		if @project.save
-			flash[:notice] = "project was successfully created"
+			flash[:success] = "project was successfully created"
 			redirect_to project_path(@project)
 		else 
 			render 'new'
@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
 
 	def destroy
 		@project.destroy
-		flash[:notice] = "project was successfully destroyed"
+		flash[:danger] = "project was successfully destroyed"
 		redirect_to projects_path
 	end
 
@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
 
 	def update
 		if @project.update(project_params)
-			flash[:notice] = "project was successfully updated"
+			flash[:success] = "project was successfully updated"
 			redirect_to project_path(@project)
 		else 
 			render 'edit'
