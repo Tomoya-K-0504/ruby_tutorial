@@ -1,0 +1,19 @@
+<h1>Listing all KB projects</h1>
+<p>
+<%= link_to "Create new project", new_project_path %>
+</p>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Vision</th>
+	</tr>
+
+	<% @projects.each do |project| %>
+	<tr>
+		<td><%= project.name %></td>
+		<td><%= project.vision %></td>
+		<td><%= link_to 'Edit', edit_project_path(project) %></td>
+		<td><%= link_to 'Show', project_path(project) %></td>
+	</tr>
+	<% end -%>
+</table>

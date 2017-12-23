@@ -3,3 +3,6 @@
 <p>Name: <%= @project.name %></p>
 
 <p>Vision: <%= @project.vision %></p>
+
+<%= link_to "Edit this project", edit_project_path(@project) %> | 
+<%= link_to "Back to project listing", projects_path %>
