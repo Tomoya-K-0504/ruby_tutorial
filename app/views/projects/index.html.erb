@@ -14,6 +14,7 @@
 		<td><%= project.vision %></td>
 		<td><%= link_to 'Edit', edit_project_path(project) %></td>
 		<td><%= link_to 'Show', project_path(project) %></td>
+		<td><%= link_to 'Delete', project_path(project), method: :delete, data: {confirm: "Are you sure?"} %></td>
 	</tr>
 	<% end -%>
 </table>
