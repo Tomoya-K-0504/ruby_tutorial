@@ -1,0 +1,16 @@
+<h1>Create an project</h1>
+
+
+<%= form_for @project do |f| %>
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</p>
+	<p>
+		<%= f.label :vision %>
+		<%= f.text_area :vision %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
