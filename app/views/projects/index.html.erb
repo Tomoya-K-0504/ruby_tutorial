@@ -1,20 +1,22 @@
-<h1>Listing all KB projects</h1>
-<p>
-<%= link_to "Create new project", new_project_path %>
-</p>
-<table>
-	<tr>
-		<th>Name</th>
-		<th>Vision</th>
-	</tr>
+<h1 align="center">Listing all KB projects</h1>
 
-	<% @projects.each do |project| %>
-	<tr>
-		<td><%= project.name %></td>
-		<td><%= project.vision %></td>
-		<td><%= link_to 'Edit', edit_project_path(project) %></td>
-		<td><%= link_to 'Show', project_path(project) %></td>
-		<td><%= link_to 'Delete', project_path(project), method: :delete, data: {confirm: "Are you sure?"} %></td>
-	</tr>
-	<% end -%>
-</table>
+<% @projects.each do |project| %>
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+			<div class="well well-lg">
+				<div class="project-name">
+					<%= link_to project.name, project_path(project) %>
+				</div>
+				<div class="project-body">
+					<%= truncate(project.vision, length: 100) %>
+				</div>
+				<div class="project-actions">
+					<%= link_to "Edit this project", edit_project_path(project), class: "btn btn-xs btn-primary" %>
+					<%= link_to "Delete this project", project_path(project), method: :delete,
+						 data: { confirm: "Are you sure you want to delete the project>"}, 
+						 class: "btn btn-xs btn-danger" %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end -%>
