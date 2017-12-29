@@ -31,7 +31,12 @@
     <%= form.text_field :mailaddress, id: :member_mailaddress %>
   </div>
 
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.text_field :password, id: :member_password %>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit(@member.new_record? ? "Create Account" : "Update account", class: "btn btn-primary btn-lg") %>
   </div>
 <% end %>
