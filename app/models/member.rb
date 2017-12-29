@@ -6,4 +6,5 @@ class Member < ApplicationRecord
 	validates :mailaddress, presence: true, uniqueness: { case_sensitive: false },
 		format: { with:VALID_MAILADDRESS_REGEX }
 	has_many :comments
+	has_secure_password
 end
