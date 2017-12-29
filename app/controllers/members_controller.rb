@@ -17,6 +17,21 @@ class MembersController < ApplicationController
     @member = Member.new
   end
 
+  # GET /signup
+  def signup
+    @member = Member.new
+  end
+
+  # POST /signup
+  # TODO 新規入会者来た時はrootへ飛ばす
+  def firstVisit
+    @member = Member.new(member_params)
+    if @member.save
+      flash[:success] = "Welcome to KB platform, #{@member.name}!"
+      redirect_to root_path
+    end
+  end
+
   # GET /members/1/edit
   def edit
   end
@@ -69,6 +84,6 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:name, :team, :lq, :mailaddress)
+      params.require(:member).permit(:name, :team, :lq, :mailaddress, :password)
     end
 end
