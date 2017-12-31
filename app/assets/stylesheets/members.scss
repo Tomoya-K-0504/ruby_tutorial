@@ -1,3 +1,30 @@
 // Place all the styles related to the Members controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.name {
+	font-weight: bold;
+	font-size: 1.7em;
+	padding-top:  10px;
+	padding-bottom: 15px; 
+}
+
+.team {
+	font-size: 0.9em;
+	padding-bottom: 7px; 
+}
+
+.lq {
+	font-weight: bold;
+	padding-bottom: 5px 
+}
+
+.actions {
+	border-top: 3px solid #eaeaea;
+	padding-top: 5px;
+}
+
+.meta-details {
+	border-top: 1px solid #eaeaea;
+	margin-top: 15px;
+}

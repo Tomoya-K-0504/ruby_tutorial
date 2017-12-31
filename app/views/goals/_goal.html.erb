@@ -1,7 +1,20 @@
 <% obj.each do |goal| %>
-  <div class="row">
+  <div class="row center">
     <div class="col-xs-8 col-xs-offset-2">
       <div class="well well-lg">
+      	<ul class="listing">
+			    <div class="row">
+			      <div class="col-xs-8 col-xs-offset-2">
+			        <div class="well-lg">
+			          <div class="name"> 
+			            <li><%= link_to gravatar_for(goal.member), member_path(goal.member) %></li>
+			            <li class="name"><%= link_to goal.member.name, member_path(goal.member) %></li>
+			            <li><small><%= pluralize(goal.member.goals.count, "goal") if goal.member.goals %></small></li>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </ul>
         <div class="title"> 
           <%= link_to goal.title, goal_path(goal) %>
         </div>

@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   # TODO 新規入会者の時の以下の有効化
   post 'signup', to: 'members#firstVisit'
 
+  get 'goal-list', to: 'goals#goalList'
+
 
 end

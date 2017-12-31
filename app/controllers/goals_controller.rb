@@ -21,6 +21,11 @@ class GoalsController < ApplicationController
   def edit
   end
 
+  # GET /goal-list
+  def goalList
+    @goals = Goal.all
+  end
+
   # POST /goals
   # POST /goals.json
   def create
