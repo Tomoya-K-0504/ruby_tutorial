@@ -16,4 +16,10 @@
 </div>
 
 <h4 class="center"><%= @member.name %>'s goals</h4>
+<div align="center">
+	<%= will_paginate @member_goals %>
+</div>
 <%= render 'goals/goal', obj: @member.goals %>
+<div align="center">
+	<%= will_paginate @member_goals %>
+</div>

@@ -10,16 +10,20 @@ class MembersController < ApplicationController
   # GET /members/1
   # GET /members/1.json
   def show
+    @member = Member.find(params[:id])
+    @member_goals = @member.goals.paginate(page: params[:page], per_page: 2)
   end
 
   # GET /members/new
   def new
     @member = Member.new
+    @projects = Project.all
   end
 
   # GET /signup
   def signup
     @member = Member.new
+    @projects = Project.all
   end
 
   # POST /signup
@@ -40,6 +44,7 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(member_params)
+    @projects = Project.all
 
     respond_to do |format|
       if @member.save

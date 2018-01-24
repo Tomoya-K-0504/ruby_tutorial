@@ -1,0 +1,27 @@
+
+<%= obj.each do |comment| %>
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Member</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= comment.description %></td>
+        <td><%= comment.member.name %></td>
+        <% if logged_in? && current_member == comment.member %>
+          <td><%= link_to 'Show', comment %></td>
+          <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+          <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end -%>
+      </tr>
+    </tbody>
+  </table>
+
+  <br>
+
+<% end -%>

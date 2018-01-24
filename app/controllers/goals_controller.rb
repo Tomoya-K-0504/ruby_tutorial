@@ -4,7 +4,7 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.all
+    @goals = Goal.paginate(page: params[:page], per_page: 2)
   end
 
   # GET /goals/1
@@ -23,7 +23,7 @@ class GoalsController < ApplicationController
 
   # GET /goal-list
   def goalList
-    @goals = Goal.all
+    @goals = Goal.paginate(page: params[:page], per_page: 2)
   end
 
   # POST /goals
