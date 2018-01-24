@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :require_member, except: [:index, :show]
-  before_action :require_same_member, only: [:edit, :update. :destroy]
+  before_action :require_same_member, only: [:edit, :update, :destroy]
 
   # GET /comments
   # GET /comments.json

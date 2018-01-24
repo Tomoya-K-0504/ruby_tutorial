@@ -14,7 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><%= link_to "Goals", goals_path%></li>
         <li><%= link_to "Projects", projects_path%></li>
         <li><%= link_to "Members", members_path %></li>
         <% if logged_in? %>

@@ -1,5 +1,7 @@
 class GoalsController < ApplicationController
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
+  before_action :require_member, except: [:index, :show]
+  before_action :require_same_member, only: [:edit, :update, :destroy]
 
   # GET /goals
   # GET /goals.json
@@ -75,5 +77,12 @@ class GoalsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
       params.require(:goal).permit(:title, :description, :progress_value, :goal_value, :member_id)
+    end
+
+    def require_same_member
+      if current_member != @comment.member
+        flash[:danger] = "You can only edit or delete your own comments"
+        redirect_to root_path
+      end
     end
 end

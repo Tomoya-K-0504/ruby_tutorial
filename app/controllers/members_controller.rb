@@ -1,5 +1,8 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :require_member, except: [:index, :show, :signup, :create]
+  before_action :require_same_member, only: [:edit, :update, :destroy]
+
 
   # GET /members
   # GET /members.json
@@ -90,5 +93,12 @@ class MembersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
       params.require(:member).permit(:name, :team, :lq, :mailaddress, :password)
+    end
+
+    def require_same_member
+      if current_member != @member
+        flash[:danger] = "You can only edit or delete your own member info"
+        redirect_to root_path
+      end
     end
 end
